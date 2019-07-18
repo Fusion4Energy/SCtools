@@ -1,0 +1,6 @@
+ , ,VOLUME, , DENSITY, , MASS
+Design1  ,  Solid ,  6210.78675336,mm3 ,  NO,g/mm3, NO,g
+Design1  ,  Solid ,  36160.4702074,mm3 ,  NO,g/mm3, NO,g
+Design1  ,  Solid ,  6210.79622169,mm3 ,  NO,g/mm3, NO,g
+Design1  ,  Solid ,  38118289.0412,mm3 ,  NO,g/mm3, NO,g
+Design1  ,  Solid ,  13047921.4125,mm3 ,  NO,g/mm3, NO,g
