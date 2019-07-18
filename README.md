@@ -1,5 +1,5 @@
 # SCtools
-This is a package grouping a set of useful routines to manipulate/analyse/modify CAD files in SpaceClaim environment.
+This is a package grouping a set of useful IronPython routines to manipulate/analyse/modify CAD files in SpaceClaim environment.
 
 Detailed information and documentation is available on request contacting marco.fabbri@f4e.europa.eu
 
