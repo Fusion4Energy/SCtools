@@ -5,7 +5,6 @@ SCtools contains the following independent tools:
 1) Elbow2Cyl
 2) CADTree_analyser
 
-Detailed information and documentation is available on request contacting marco.fabbri@f4e.europa.eu
 
 ## Elbow2Cyl
 Routine which automatically substitutes the elbow of a pipe or tube into a
