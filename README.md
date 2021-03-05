@@ -1,3 +1,9 @@
+![GitHub last commit](https://img.shields.io/github/last-commit/Radiation-Transport/SCtools)
+![GitHub issues](https://img.shields.io/github/issues/Radiation-Transport/SCtools)
+![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/Radiation-Transport/SCtools)
+![GitHub top language](https://img.shields.io/github/languages/top/Radiation-Transport/SCtools)
+![](https://img.shields.io/badge/license-EU%20PL-blue)
+
 # SCtools
 This is a package grouping a set of useful IronPython routines to manipulate/analyse/modify CAD files in SpaceClaim environment.
 
