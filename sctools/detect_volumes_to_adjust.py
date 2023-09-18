@@ -76,7 +76,7 @@ for body in all_bodies:
 sel = Selection.Create(all_bodies)
 options = SetColorOptions()
 options.FaceColorTarget = FaceColorTarget.Body
-ColorHelper.SetColor(sel, options, Color.Blue)
+ColorHelper.SetColor(sel, options, ColorHelper.Blue)
 ColorHelper.SetFillStyle(sel, FillStyle.Transparent)
 
 sel = Selection.Create(volume_dif_exceeded_bodies)
