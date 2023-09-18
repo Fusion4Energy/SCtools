@@ -1,5 +1,4 @@
 # Python Script, API Version = V22
-# Python Script, API Version = V22
 import csv
 
 
@@ -56,15 +55,23 @@ except NameError:
     volumes_by_tree = get_volume_by_tree_from_csv(csv_filename)
 
 volume_dif_exceeded_bodies = []
+cache_part_volume_exceeded = {}
 
 all_bodies = GetRootPart().GetAllBodies()
 for body in all_bodies:
-    current_volume = total_volume(body)
     tree = get_tree_from_part(body.Parent)
+    if tree in cache_part_volume_exceeded:
+        if cache_part_volume_exceeded[tree]:
+            volume_dif_exceeded_bodies.append(body)
+        continue
+    current_volume = total_volume(body)
     original_volume = volumes_by_tree[tree]
     dif = abs(original_volume - current_volume) / original_volume * 100
     if dif > MAX_DIFF:
         volume_dif_exceeded_bodies.append(body)
+        cache_part_volume_exceeded[tree] = True
+    else:
+        cache_part_volume_exceeded[tree] = False
 
 sel = Selection.Create(all_bodies)
 options = SetColorOptions()
@@ -78,3 +85,4 @@ options.FaceColorTarget = FaceColorTarget.Body
 ColorHelper.SetColor(sel, options, Color.Red)
 ColorHelper.SetFillStyle(sel, FillStyle.Opaque)
 
+del cache_part_volume_exceeded
