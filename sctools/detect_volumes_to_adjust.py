@@ -84,5 +84,3 @@ options = SetColorOptions()
 options.FaceColorTarget = FaceColorTarget.Body
 ColorHelper.SetColor(sel, options, Color.Red)
 ColorHelper.SetFillStyle(sel, FillStyle.Opaque)
-
-del cache_part_volume_exceeded
