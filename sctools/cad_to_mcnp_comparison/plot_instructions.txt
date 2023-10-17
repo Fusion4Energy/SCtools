@@ -1,0 +1,9 @@
+plot
+label 0 0 &
+pz 0 ex 1000
+ex 500
+basis 0 1 0 -33 0 26 &
+ex 1000
+px 1 ex 1000
+end
+end

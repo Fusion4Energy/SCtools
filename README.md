@@ -13,6 +13,7 @@ SCtools contains many independent tools.
 *This section is still a work in progress*
 
 - [`load_csv_points.py`](sctools/load_csv_points.py) is a simple script that allows to read a .csv file containing points coordinates and render them as spheres in SpaceClaim.
+- [`cad_to_mcnp_comparison`](sctools/cad_to_mcnp_comparison/) automtizes the generation of reports which compare slice plots from both SpaceClaim and the MCNP plotter.
 
 ## License
 Copyright 2019 F4E | European Joint Undertaking for ITER and the Development of Fusion Energy (‘Fusion for Energy’). Licensed under the EUPL, Version 1.1 or - as soon they will be approved by the European Commission - subsequent versions of the EUPL (the “Licence”). You may not use this work except in compliance with the Licence. You may obtain a copy of the Licence at: http://ec.europa.eu/idabc/eupl.html   
