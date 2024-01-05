@@ -15,9 +15,9 @@ SCALE = 1  # Scale the x,y,z coordinates by a factor
 
 # --- Functions ---
 def build_sphere(origin, radius, scale=1):
-    x = float(origin[0]) * scale
-    y = float(origin[1]) * scale
-    z = float(origin[2]) * scale
+    x = CM(float(origin[0])) * scale
+    y = CM(float(origin[1])) * scale
+    z = CM(float(origin[2])) * scale
     start_point = Point.Create(x, y, z)
     end_point = Point.Create(x, y, z + radius)
     SphereBody.Create(start_point, end_point, ExtrudeType.ForceIndependent)
