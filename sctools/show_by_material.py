@@ -51,9 +51,11 @@ def get_bodies_with_material(material, materials_by_tree):
 def get_chosen_material(materials_by_tree):
     material_names = set(materials_by_tree.values())
     for material in material_names:
-        message = MessageBox.Show('Show only material ' + str(material),
-                                  'Material selection',
-                                  MessageBoxButtons.YesNo)
+        message = MessageBox.Show(
+            "Show only material " + str(material),
+            "Material selection",
+            MessageBoxButtons.YesNo,
+        )
         if message == DialogResult.Yes:
             return material
     return None

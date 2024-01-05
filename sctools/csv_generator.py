@@ -108,9 +108,9 @@ class Component:
             self.volume_simplified = self.simplified_comp.volume_original
             self.cell_ids = self.simplified_comp.cell_ids
             diff = (
-                    (self.volume_original - self.simplified_comp.volume_original)
-                    / self.volume_original
-                    * 100
+                (self.volume_original - self.simplified_comp.volume_original)
+                / self.volume_original
+                * 100
             )
             self.volume_difference = diff if abs(diff) > 1e-3 else 0.0
         for subcomponent in self.subcomponents:
@@ -126,9 +126,9 @@ class Component:
         self.cell_ids = self.simplified_comp.cell_ids
         self.volume_simplified = self.simplified_comp.volume_original
         diff = (
-                (self.volume_original - self.simplified_comp.volume_original)
-                / self.volume_original
-                * 100
+            (self.volume_original - self.simplified_comp.volume_original)
+            / self.volume_original
+            * 100
         )
         self.volume_difference = diff if abs(diff) > 1e-3 else 0.0
         return
