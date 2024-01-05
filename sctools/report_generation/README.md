@@ -6,13 +6,13 @@ These tools are used to automatically produce a report that compares images of t
 These scripts make use of the CSV file.
 
 ## 2. Run the make_picutres.py script on the original CAD file
-This will create a folder named _Original Pictures_ and fill it with a picture for each row of the CSV file of the document.
+This will create a folder named *_Original_Pictures* and fill it with a picture for each row of the CSV file of the document.
 
 ## 3. Update the CSV with information on the simplified geometry
 These scripts will make use of information found in the _Material_, _Density_, _DCF_, _Mass_ and _Comment_ columns.
 
 ## 4. Run the make_pictures.py on the simplified CAD file
-This will create a folder named _Simplified Pictures_ and fill it with pictures.
+This will create a folder named *Simplified_Pictures* and fill it with pictures.
 
 ## 5. Run the report_generation.py script
 This will generate a docx file with the report.
