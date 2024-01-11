@@ -9,4 +9,3 @@ for b in bodies:
             ColorHelper.SetColor(sel, options, Color.FromArgb(255, 255, 0, 0))
             ColorHelper.SetFillStyle(sel, FillStyle.Opaque)
             break
-            
