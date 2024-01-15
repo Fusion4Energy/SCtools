@@ -92,19 +92,17 @@ def get_axes(vectors):
 
 def order_axes_closer_to_xyz(axes):
     x = Vector.Create(1,0,0)
-    x_axe = normalize(axes[0])
+    x_axe = axes[0]
     for axe in axes:
-        normalized_axe = normalize(axe)
-        if Vector.Cross(x, normalized_axe).Magnitude < Vector.Cross(x, x_axe).Magnitude:
+        if Vector.Cross(x, normalize(axe)).Magnitude < Vector.Cross(x, normalize(x_axe)).Magnitude:
             x_axe = axe
 
     axes.remove(x_axe)
 
     y = Vector.Create(0,1,0)
-    y_axe = normalize(axes[0])
+    y_axe = axes[0]
     for axe in axes:
-        normalized_axe = normalize(axe)
-        if Vector.Cross(y, normalized_axe).Magnitude < Vector.Cross(y, y_axe).Magnitude:
+        if Vector.Cross(y, normalize(axe)).Magnitude < Vector.Cross(y, normalize(y_axe)).Magnitude:
             y_axe = axe
 
     axes.remove(y_axe)
