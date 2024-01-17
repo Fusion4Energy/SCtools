@@ -1,5 +1,6 @@
-import pandas as pd
 import re
+
+import pandas as pd
 from numjuggler import parser as mp
 
 MCNP_INPUT = "JT60_v0.5_without_materials.i"
@@ -57,7 +58,14 @@ def process_cell_card(card: mp.Card, cell_ids, material_ids):
     if cell_id not in cell_ids:
         return card.card()
     row = cell_ids[cell_id]
-    cell_comment = row["COMMENT"]
+    cell_comment = [
+        row["Level " + str(i + 1)]
+        for i in range(len(row))
+        if "Level " + str(i + 1) in row.keys() and row["Level " + str(i + 1)] != "-"
+    ][-1]
+    comment_column = str(row["COMMENT"])
+    if comment_column != "nan":
+        cell_comment = cell_comment + " " + comment_column
     density_correction_factor = row["DCF=ORG/STOCH"]
     if str(density_correction_factor) != "nan":
         cell_comment = "DCF=" + density_correction_factor + " " + cell_comment
@@ -66,19 +74,19 @@ def process_cell_card(card: mp.Card, cell_ids, material_ids):
         density_correction_factor = 1.0
     # if no material is found in the csv the cell will be void
     material_name = str(row["MATERIAL"])
-    if material_name == "nan" or material_name == "void":
+    if material_name in ("nan", "void"):
         material_id = "0"
     else:
         if material_name not in material_ids.keys():
             material_ids[material_name] = max(material_ids.values()) + 1
         material_id = material_ids[material_name]
     density = str(row["DENSITY [g/cm3]"])
-    if density == "nan" or density == "N/A":
+    if density in ("nan", "N/A"):
         density = ""
     else:
         density = float(density) * float(density_correction_factor)
         density = f"-{density:.5e}"
-    header = f"{cell_id} {material_id} {density} ${cell_comment}"
+    header = f"{cell_id} {material_id} {density} $ {cell_comment}"
     split = [header] + card.card().split("\n")
     if split[1].split()[1] == "0":  # void cell
         split[1] = "          " + " ".join(split[1].split()[2:])
@@ -99,13 +107,11 @@ def write_mcnp_with_materials(mcnp_input, cell_ids, material_ids):
             else:
                 card_definition = card.card()
             infile.write(card_definition)
-    return
 
 
 def main():
     cell_ids = read_csv_cell_ids(CSV_FILE, FIRST_CELL_ID)
     write_mcnp_with_materials(MCNP_INPUT, cell_ids, MATERIAL_IDS)
-    return
 
 
 if __name__ == "__main__":
