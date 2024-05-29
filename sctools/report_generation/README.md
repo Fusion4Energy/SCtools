@@ -21,4 +21,4 @@ This will generate a docx file with the report.
 Open the docx file with Word and set the layout to horizontal. Then save it as a PDF file.
 
 # Issues
-These scripts are designed to work with CAD files that follow the ENOVIA code convention (a # and six alphanumeric characters at the end of every component name). It may not work properly with generic CAD files. It could be updated to use the last version of the Componen class as seen in the current csv_generator.py script.
+These scripts are designed to work with CAD files that follow the ENOVIA code convention (a # and six alphanumeric characters at the end of every component name). It may not work properly with generic CAD files. It could be updated to use the last version of the Component class as seen in the current csv_generator.py script.
