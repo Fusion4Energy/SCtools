@@ -73,7 +73,7 @@ def read_commands(instructions_file_path):
                 vec2 = [float(words[i + 4]), float(words[i + 5]), float(words[i + 6])]
                 commands[-1].direction = cross_product(vec1, vec2)
 
-        if words and words[-1] == "&" and flag_reading_command:
+        if words and words[-1] != "&" and flag_reading_command:
             flag_reading_command = False
             commands.append(deepcopy(commands[-1]))
             commands[-1].counter += 1
