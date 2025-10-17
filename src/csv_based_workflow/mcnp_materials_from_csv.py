@@ -76,14 +76,16 @@ class Processor:
         """
         mcnp_input_filepath = self.input_data.mcnp_input_filepath
         cards = mp.get_cards(mcnp_input_filepath)
-        with open(mcnp_input_filepath + "[materials_added]", "w") as infile:
+        with open(
+            mcnp_input_filepath + "[materials_added]", "w", newline="", encoding="utf-8"
+        ) as infile:
             for card in cards:
                 if card.ctype == mp.CID.cell:
                     card_definition = self._process_cell_card(card)
                 else:
                     card_definition = card.card()
                 infile.write(card_definition)
-        
+
         print(f"The employed materials were: {self.employed_materials}")
 
     def _process_cell_card(self, card: mp.Card) -> str:
@@ -169,10 +171,10 @@ class Processor:
         comments.
         """
         file_path = self.input_data.mcnp_input_filepath + "[materials_added]"
-        with open(file_path) as infile:
+        with open(file_path, encoding="utf-8") as infile:
             lines = infile.readlines()
 
-        with open(file_path, "w") as infile:
+        with open(file_path, "w", encoding="utf-8") as infile:
             for line in lines:
                 if not re.match(r"^\s*\$", line):
                     infile.write(line)
